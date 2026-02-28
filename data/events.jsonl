@@ -1,0 +1,5 @@
+{"timestamp": "2026-02-28T16:41:42.072846+00:00", "event_type": "auth_login", "actor_id": "u-hr-001", "actor_role": "HR", "details": {"username": "hr_admin"}}
+{"timestamp": "2026-02-28T16:45:52.627081+00:00", "event_type": "auth_login", "actor_id": "u-hr-001", "actor_role": "HR", "details": {"username": "hr_admin"}}
+{"timestamp": "2026-02-28T16:46:08.451114+00:00", "event_type": "policy_query", "actor_id": "u-hr-001", "actor_role": "HR", "details": {"response_id": "pol-32922857074c", "question": "Can you generate HR policy", "confidence": 0.542, "citations": ["POL-003", "POL-007"]}}
+{"timestamp": "2026-02-28T16:46:11.377672+00:00", "event_type": "policy_feedback", "actor_id": "u-hr-001", "actor_role": "HR", "details": {"response_id": "pol-32922857074c", "accurate": true, "comment": ""}}
+{"timestamp": "2026-02-28T16:46:13.622721+00:00", "event_type": "policy_feedback", "actor_id": "u-hr-001", "actor_role": "HR", "details": {"response_id": "pol-32922857074c", "accurate": false, "comment": ""}}

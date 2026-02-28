@@ -1,0 +1,72 @@
+[
+  {
+    "policy_id": "POL-001",
+    "title": "Paid Time Off and Leave Approval",
+    "category": "Leave Management",
+    "audience": "All Employees, Managers, HR",
+    "content": "Employees must submit leave requests at least 5 business days in advance unless the leave is unplanned. Managers approve standard leave up to 10 days; escalations beyond 10 days route to HR. Approval decisions must be documented in the HRIS workflow trail.",
+    "tags": ["leave", "pto", "approval", "manager", "hris"],
+    "effective_date": "2025-01-01",
+    "last_updated": "2026-01-10"
+  },
+  {
+    "policy_id": "POL-002",
+    "title": "Sick Leave and Emergency Absence",
+    "category": "Leave Management",
+    "audience": "All Employees, Managers",
+    "content": "Emergency and sick leave must be reported as soon as reasonably possible through the employee self-service portal. Medical documentation may be requested for absences longer than 3 consecutive days. Managers must not store medical details outside approved HR systems.",
+    "tags": ["sick leave", "absence", "documentation", "privacy"],
+    "effective_date": "2024-11-15",
+    "last_updated": "2025-12-20"
+  },
+  {
+    "policy_id": "POL-003",
+    "title": "Employment Verification Document Requests",
+    "category": "HR Operations",
+    "audience": "Employees, HR",
+    "content": "Employees can request employment verification letters, salary certificates, and service letters via HRIS. HR target turnaround time is 2 business days for standard requests. Sensitive document delivery must use authenticated channels only.",
+    "tags": ["documents", "verification", "salary certificate", "service letter"],
+    "effective_date": "2025-02-01",
+    "last_updated": "2026-02-01"
+  },
+  {
+    "policy_id": "POL-004",
+    "title": "New Hire Onboarding Workflow",
+    "category": "Onboarding",
+    "audience": "HR, Managers, New Employees",
+    "content": "HR triggers onboarding in the HRIS after offer acceptance. Mandatory tasks include I-9 validation, system provisioning, policy acknowledgements, and manager orientation scheduling. All onboarding tasks must have owners and due dates.",
+    "tags": ["onboarding", "new hire", "i-9", "task automation"],
+    "effective_date": "2025-03-01",
+    "last_updated": "2026-01-25"
+  },
+  {
+    "policy_id": "POL-005",
+    "title": "GDPR and Employee Data Protection",
+    "category": "Data Governance",
+    "audience": "HR, Managers, Employees",
+    "content": "Employee personal data processing requires documented lawful basis and explicit consent where applicable. Data minimization, purpose limitation, retention controls, and subject access rights must be enforced. Erasure requests must be executed without undue delay subject to legal retention exceptions.",
+    "tags": ["gdpr", "consent", "retention", "data minimization", "erasure"],
+    "effective_date": "2024-09-01",
+    "last_updated": "2026-02-10"
+  },
+  {
+    "policy_id": "POL-006",
+    "title": "Manager Role in Workforce Administration",
+    "category": "Manager Guidelines",
+    "audience": "Managers",
+    "content": "Managers can view and approve team-level requests, but must not access records for employees outside their reporting line. Escalations involving compliance, grievances, or policy exceptions must be transferred to HR.",
+    "tags": ["manager", "rbac", "team", "access control"],
+    "effective_date": "2025-05-01",
+    "last_updated": "2026-01-05"
+  },
+  {
+    "policy_id": "POL-007",
+    "title": "AI Assistant Usage and Human Oversight",
+    "category": "AI Governance",
+    "audience": "HR, Managers",
+    "content": "AI-generated HR guidance is advisory and must be reviewed by a human decision maker before final policy interpretation. High-impact actions, including disciplinary and legal matters, require explicit HR validation and auditable decision logs.",
+    "tags": ["ai", "human oversight", "audit", "compliance"],
+    "effective_date": "2025-07-01",
+    "last_updated": "2026-02-15"
+  }
+]

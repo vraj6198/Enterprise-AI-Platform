@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ app_title }} | UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Enterprise AI Platform</p>
+        <h1>{{ app_title }}</h1>
+        <p class="subtitle">
+          Governed policy intelligence, HRIS workflow automation, and compliance-aware operations in one workspace.
+        </p>
+      </div>
+      <div class="hero-badge">
+        <span id="sessionBadge">Session: Signed out</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel auth-panel">
+        <h2>Access</h2>
+        <form id="loginForm" class="stack">
+          <label>
+            Username
+            <input id="username" name="username" type="text" placeholder="hr_admin" required />
+          </label>
+          <label>
+            Password
+            <input id="password" name="password" type="password" placeholder="hr123" required />
+          </label>
+          <button type="submit">Sign In</button>
+        </form>
+
+        <button id="logoutBtn" class="ghost">Sign Out</button>
+
+        <div class="account" id="accountCard">
+          <h3>Current User</h3>
+          <p id="accountName">Not authenticated</p>
+          <p id="accountRole">Role: -</p>
+          <p id="accountId">ID: -</p>
+        </div>
+
+        <div class="hint">
+          <p>Demo Accounts</p>
+          <ul>
+            <li>hr_admin / hr123</li>
+            <li>mgr_jane / manager123</li>
+            <li>emp_alex / employee123</li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="content">
+        <nav class="tab-row">
+          <button class="tab active" data-tab="policy">Policy Assistant</button>
+          <button class="tab" data-tab="workflows">Workflows</button>
+          <button class="tab" data-tab="governance">Governance</button>
+          <button class="tab" data-tab="analytics">Analytics</button>
+        </nav>
+
+        <section class="tab-panel active" id="tab-policy">
+          <div class="grid two">
+            <article class="panel">
+              <h2>Policy Query</h2>
+              <form id="policyQueryForm" class="stack">
+                <label>
+                  Ask HR Policy Question
+                  <textarea id="policyQuestion" rows="4" minlength="10" required placeholder="How should leave approvals be handled for requests over 10 days?"></textarea>
+                </label>
+                <button type="submit">Generate Guidance</button>
+              </form>
+              <div id="policyResult" class="output muted">No response yet.</div>
+            </article>
+
+            <article class="panel">
+              <h2>Response Feedback</h2>
+              <p class="muted">Track answer quality for KPI accuracy metrics.</p>
+              <div class="inline-actions">
+                <button id="feedbackAccurate" disabled>Mark Accurate</button>
+                <button id="feedbackInaccurate" class="warn" disabled>Mark Inaccurate</button>
+              </div>
+              <textarea id="feedbackComment" rows="3" placeholder="Optional quality note"></textarea>
+              <div id="feedbackResult" class="output muted">Awaiting submission.</div>
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-workflows">
+          <div class="grid two">
+            <article class="panel">
+              <h2>Leave Request</h2>
+              <form id="leaveCreateForm" class="stack">
+                <label>Start Date<input id="leaveStart" type="date" required /></label>
+                <label>End Date<input id="leaveEnd" type="date" required /></label>
+                <label>Reason<textarea id="leaveReason" rows="2" required minlength="5"></textarea></label>
+                <button type="submit">Submit Leave Request</button>
+              </form>
+              <div class="inline-actions">
+                <button id="refreshLeave">Refresh Leave List</button>
+              </div>
+            </article>
+
+            <article class="panel" data-roles="HR,MANAGER">
+              <h2>Leave Decision</h2>
+              <form id="leaveDecisionForm" class="stack">
+                <label>Request ID<input id="decisionRequestId" type="text" required /></label>
+                <label>
+                  Decision
+                  <select id="decisionAction">
+                    <option value="approve">Approve</option>
+                    <option value="reject">Reject</option>
+                  </select>
+                </label>
+                <label>Notes<textarea id="decisionNotes" rows="2"></textarea></label>
+                <button type="submit">Submit Decision</button>
+              </form>
+            </article>
+          </div>
+
+          <article class="panel">
+            <h2>Leave Records</h2>
+            <div id="leaveList" class="output muted">No leave records loaded.</div>
+          </article>
+
+          <div class="grid two">
+            <article class="panel">
+              <h2>Document Request</h2>
+              <form id="docRequestForm" class="stack">
+                <label>Document Type<input id="docType" type="text" required placeholder="Employment Verification" /></label>
+                <label>Purpose<textarea id="docPurpose" rows="2" required minlength="5"></textarea></label>
+                <button type="submit">Request Document</button>
+              </form>
+              <div class="inline-actions">
+                <button id="refreshDocs">Refresh Document Requests</button>
+              </div>
+            </article>
+
+            <article class="panel" data-roles="HR">
+              <h2>Onboarding Trigger</h2>
+              <form id="onboardingForm" class="stack">
+                <label>Employee ID<input id="onboardingEmployeeId" type="text" required placeholder="u-emp-001" /></label>
+                <label>Start Date<input id="onboardingStart" type="date" required /></label>
+                <button type="submit">Trigger Onboarding</button>
+              </form>
+              <div class="inline-actions">
+                <button id="refreshOnboarding">Refresh Onboarding Tasks</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="panel">
+            <h2>Document Requests</h2>
+            <div id="docList" class="output muted">No document requests loaded.</div>
+          </article>
+
+          <article class="panel">
+            <h2>Onboarding Tasks</h2>
+            <div id="onboardingList" class="output muted">No onboarding tasks loaded.</div>
+          </article>
+        </section>
+
+        <section class="tab-panel" id="tab-governance">
+          <div class="grid two">
+            <article class="panel">
+              <h2>Consent Update</h2>
+              <form id="consentForm" class="stack">
+                <label>Target User ID<input id="consentUserId" type="text" required /></label>
+                <label class="toggle">
+                  <input id="consentValue" type="checkbox" checked />
+                  GDPR Consent Enabled
+                </label>
+                <button type="submit">Update Consent</button>
+              </form>
+            </article>
+
+            <article class="panel">
+              <h2>Subject Access Request</h2>
+              <form id="sarForm" class="stack">
+                <label>Target User ID<input id="sarUserId" type="text" required /></label>
+                <button type="submit">Fetch Subject Access Data</button>
+              </form>
+            </article>
+          </div>
+
+          <div class="grid two">
+            <article class="panel" data-roles="HR">
+              <h2>Data Erasure (HR)</h2>
+              <form id="erasureForm" class="stack">
+                <label>Target User ID<input id="erasureUserId" type="text" required /></label>
+                <button type="submit" class="warn">Anonymize User Data</button>
+              </form>
+            </article>
+
+            <article class="panel" data-roles="HR">
+              <h2>Retention Cleanup (HR)</h2>
+              <form id="retentionForm" class="stack">
+                <label>Retention Days<input id="retentionDays" type="number" min="30" value="365" required /></label>
+                <button type="submit">Run Retention Cleanup</button>
+              </form>
+            </article>
+          </div>
+
+          <article class="panel">
+            <h2>Governance Output</h2>
+            <div id="governanceOutput" class="output muted">No governance action yet.</div>
+          </article>
+        </section>
+
+        <section class="tab-panel" id="tab-analytics">
+          <article class="panel">
+            <h2>KPI Dashboard</h2>
+            <div class="inline-actions">
+              <button id="refreshKpi">Refresh KPIs</button>
+              <button id="refreshEvents" data-roles="HR">Load Event Log</button>
+            </div>
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <h3>Usage</h3>
+                <p id="kpiUsage">-</p>
+              </div>
+              <div class="kpi-card">
+                <h3>Accuracy</h3>
+                <p id="kpiAccuracy">-</p>
+              </div>
+              <div class="kpi-card">
+                <h3>Automation</h3>
+                <p id="kpiAutomation">-</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel" data-roles="HR">
+            <h2>Recent Event Log</h2>
+            <div id="eventsOutput" class="output muted">No events loaded.</div>
+          </article>
+        </section>
+
+        <footer class="statusbar" id="statusBar">Ready. Authenticate to begin.</footer>
+      </section>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
