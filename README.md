@@ -1,4 +1,4 @@
-# Enterprise HR AI Assistant with Governance & Workflow Automation
+# Enterprise AI Assistant with Governance & Workflow Automation
 
 Portfolio-ready FastAPI project that simulates a real enterprise HR AI + HRIS implementation with policy intelligence, workflow automation, RBAC, GDPR-aligned controls, and KPI tracking.
 
